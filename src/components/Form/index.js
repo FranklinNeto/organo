@@ -4,7 +4,7 @@ import DropDown from "../DropDown";
 import Button from "../Button";
 import { useState } from "react";
 
-const Form = () => {
+const Form = (props) => {
   const times = [
     "Programação",
     "Front-End",
@@ -22,7 +22,12 @@ const Form = () => {
 
   const aoSalvar = (event) => {
     event.preventDefault();
-    console.log(nome, cargo, imagem, time);
+    props.aoColaboradorCadastrado({
+      nome,
+      cargo,
+      imagem,
+      time,
+    });
   };
 
   return (
@@ -53,6 +58,7 @@ const Form = () => {
         <DropDown
           obrigatorio={true}
           itens={times}
+          label="Time"
           valor={time}
           aoAlterado={(valor) => setTime(valor)}
         />
