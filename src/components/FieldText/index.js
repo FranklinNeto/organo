@@ -3,10 +3,19 @@ import "./styles.css";
 const FieldText = (props) => {
   const placeholderModificada = `${props.placeholder}...`; //concatena props.placeholder com "..."
 
+  const aoDigitado = (event) => {
+    props.aoAlterado(event.target.value);
+  };
+
   return (
     <div className="campo-texto">
       <label>{props.label}</label>
-      <input placeholder={placeholderModificada} />
+      <input
+        value={props.valor}
+        onChange={aoDigitado}
+        required={props.obrigatorio}
+        placeholder={placeholderModificada}
+      />
     </div>
   );
 };
