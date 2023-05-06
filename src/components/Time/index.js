@@ -3,11 +3,23 @@ import "./styles.css";
 
 const Time = (props) => {
   const estilos = { backgroundColor: props.corSecundaria };
-  return (
+
+  const array = props.colaboradores;
+  return array.length > 0 ? (
     <section className="time" style={estilos}>
       <h3 style={{ borderColor: props.corPrimaria }}>{props.nome}</h3>
-      <ColaboradorCard />
+      <div className="colaboradores">
+        {props.colaboradores.map((colaborador) => (
+          <ColaboradorCard
+            nome={colaborador.nome}
+            cargo={colaborador.cargo}
+            imagem={colaborador.imagem}
+          />
+        ))}
+      </div>
     </section>
+  ) : (
+    <></>
   );
 };
 
