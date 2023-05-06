@@ -5,16 +5,6 @@ import Button from "../Button";
 import { useState } from "react";
 
 const Form = (props) => {
-  const times = [
-    "Programação",
-    "Front-End",
-    "Data Science",
-    "Devops",
-    "UX e Design",
-    "Mobile",
-    " Inovação e Gestão",
-  ];
-
   const [nome, setNome] = useState("");
   const [cargo, setCargo] = useState("");
   const [imagem, setImagem] = useState("");
@@ -57,7 +47,7 @@ const Form = (props) => {
         />
         <DropDown
           obrigatorio={true}
-          itens={times}
+          itens={props.time}
           label="Time"
           valor={time}
           aoAlterado={(valor) => setTime(valor)}

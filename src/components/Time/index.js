@@ -1,3 +1,4 @@
+import ColaboradorCard from "../ColaboradorCard";
 import "./styles.css";
 
 const Time = (props) => {
@@ -5,6 +6,7 @@ const Time = (props) => {
   return (
     <section className="time" style={estilos}>
       <h3 style={{ borderColor: props.corPrimaria }}>{props.nome}</h3>
+      <ColaboradorCard />
     </section>
   );
 };

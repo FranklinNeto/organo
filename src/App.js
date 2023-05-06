@@ -49,6 +49,7 @@ function App() {
     <div className="App">
       <Banner />
       <Form
+        time={times.map((time) => time.nome)}
         aoColaboradorCadastrado={(colaborador) => {
           aoNovoColaboradorAdicionado(colaborador);
         }}
