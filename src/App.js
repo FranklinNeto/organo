@@ -2,9 +2,15 @@ import { useState } from "react";
 import Banner from "./components/Banner";
 import Form from "./components/Form";
 import Time from "./components/Time";
+import Rodape from "./components/Rodape";
 
 function App() {
   const times = [
+    {
+      nome: "Programação",
+      corPrimaria: "#57C278",
+      corSecundaria: "#D9F7E9",
+    },
     {
       nome: "Front-End",
       corPrimaria: "#82CFFA",
@@ -40,8 +46,6 @@ function App() {
   const [colaboradores, setColaboradores] = useState([]);
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
-    console.log(colaborador);
-
     setColaboradores([...colaboradores, colaborador]);
   };
 
@@ -65,6 +69,7 @@ function App() {
           )}
         />
       ))}
+      <Rodape />
     </div>
   );
 }
