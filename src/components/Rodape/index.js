@@ -4,7 +4,10 @@ import "./styles.css";
 
 const Rodape = () => {
   return (
-    <footer className="footer">
+    <footer
+      className="footer"
+      style={{ backgroundImage: "url(/imagens/fundo.png)" }}
+    >
       <section>
         <ul>
           <li>
@@ -28,7 +31,7 @@ const Rodape = () => {
         <img src="/imagens/logo.png" alt="" />
       </section>
       <section>
-        <p>Desenvolvido por Alura.</p>
+        <p>Desenvolvido por Alura</p>
       </section>
     </footer>
   );

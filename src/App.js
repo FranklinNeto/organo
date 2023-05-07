@@ -5,7 +5,7 @@ import Time from "./components/Time";
 import Rodape from "./components/Rodape";
 
 function App() {
-  const times = [
+  const [times, setTimes] = useState([
     {
       nome: "Programação",
       corPrimaria: "#57C278",
@@ -41,9 +41,22 @@ function App() {
       corPrimaria: "#FF8A29",
       corSecundaria: "#FFEEDF",
     },
-  ];
+  ]);
 
   const [colaboradores, setColaboradores] = useState([]);
+
+  const deletarColaborador = () => {};
+
+  const mudarCorDoTime = (cor, nome) => {
+    setTimes(
+      times.map((time) => {
+        if (time.nome === nome) {
+          time.corPrimaria = cor;
+        }
+        return time;
+      })
+    );
+  };
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
     setColaboradores([...colaboradores, colaborador]);
@@ -58,17 +71,22 @@ function App() {
           aoNovoColaboradorAdicionado(colaborador);
         }}
       />
-      {times.map((time) => (
-        <Time
-          key={time.nome}
-          nome={time.nome}
-          corPrimaria={time.corPrimaria}
-          corSecundaria={time.corSecundaria}
-          colaboradores={colaboradores.filter(
-            (colaborador) => colaborador.time === time.nome
-          )}
-        />
-      ))}
+      <section className="times">
+        <h1>Minha Organização</h1>
+        {times.map((time) => (
+          <Time
+            key={time.nome}
+            mudarCor={mudarCorDoTime}
+            nome={time.nome}
+            corPrimaria={time.corPrimaria}
+            corSecundaria={time.corSecundaria}
+            colaboradores={colaboradores.filter(
+              (colaborador) => colaborador.time === time.nome
+            )}
+            aoDeletar={deletarColaborador}
+          />
+        ))}
+      </section>
       <Rodape />
     </div>
   );
