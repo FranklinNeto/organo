@@ -3,6 +3,7 @@ import FieldText from "../FieldText";
 import DropDown from "../DropDown";
 import Button from "../Button";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const Form = (props) => {
   const [nome, setNome] = useState("");
@@ -13,6 +14,7 @@ const Form = (props) => {
   const aoSalvar = (event) => {
     event.preventDefault();
     props.aoColaboradorCadastrado({
+      id: uuidv4(),
       nome,
       cargo,
       imagem,

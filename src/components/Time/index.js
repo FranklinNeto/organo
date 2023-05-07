@@ -1,9 +1,10 @@
 import ColaboradorCard from "../ColaboradorCard";
+import hexToRgba from "hex-to-rgba";
 import "./styles.css";
 
 const Time = (props) => {
   const estilos = {
-    backgroundColor: props.corSecundaria,
+    backgroundColor: hexToRgba(props.corPrimaria, "0.6"),
     backgroundImage: "url(/imagens/fundo.png)",
   };
 
@@ -11,10 +12,10 @@ const Time = (props) => {
   return array.length > 0 ? (
     <section className="time" style={estilos}>
       <input
-        value={props.corSecundaria}
+        value={props.corPrimaria}
         type="color"
         className="input-cor"
-        onChange={(event) => props.mudarCor(event.target.value, props.nome)}
+        onChange={(event) => props.mudarCor(event.target.value, props.id)}
       ></input>
 
       <h3 style={{ borderColor: props.corPrimaria }}>{props.nome}</h3>
@@ -22,7 +23,7 @@ const Time = (props) => {
         {props.colaboradores.map((colaborador) => (
           <ColaboradorCard
             corDeFundo={props.corPrimaria}
-            key={colaborador.nome}
+            key={colaborador.id}
             nome={colaborador.nome}
             cargo={colaborador.cargo}
             imagem={colaborador.imagem}
