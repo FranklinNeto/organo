@@ -47,26 +47,25 @@ const Form = (props) => {
         <FieldText
           valor={nome}
           aoAlterado={(valor) => setNome(valor)}
-          obrigatorio={true}
+          obrigatorio
           label="Nome"
           placeholder="Digite seu nome"
         />
         <FieldText
           valor={cargo}
           aoAlterado={(valor) => setCargo(valor)}
-          obrigatorio={true}
+          obrigatorio
           label="Cargo"
           placeholder="Digite seu cargo"
         />
         <FieldText
           valor={imagem}
           aoAlterado={(valor) => setImagem(valor)}
-          obrigatorio={false}
           label="Imagem"
           placeholder="Digite o endereço da imagem"
         />
         <DropDown
-          obrigatorio={true}
+          obrigatorio
           itens={props.time}
           label="Time"
           valor={time}
@@ -79,16 +78,15 @@ const Form = (props) => {
         <FieldText
           valor={nomeTime}
           aoAlterado={(valor) => setNomeTime(valor)}
-          obrigatorio={true}
+          obrigatorio
           label="Nome do time"
           placeholder="Digite o nome do time"
         />
         <FieldText
+          type="color"
           valor={corTime}
           aoAlterado={(valor) => setCorTime(valor)}
-          obrigatorio={true}
           label="Cor do Time"
-          placeholder="Digite a cor do time em hexadecimal"
         />
 
         <Button>Criar um novo time</Button>

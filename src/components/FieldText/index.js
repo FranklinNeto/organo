@@ -1,19 +1,27 @@
 import "./styles.css";
 
-const FieldText = (props) => {
-  const placeholderModificada = `${props.placeholder}...`; //concatena props.placeholder com "..."
+const FieldText = ({
+  type = "text",
+  placeholder,
+  aoAlterado,
+  label,
+  valor,
+  obrigatorio = false,
+}) => {
+  const placeholderModificada = `${placeholder}...`; //concatena placeholder com "..."
 
   const aoDigitado = (event) => {
-    props.aoAlterado(event.target.value);
+    aoAlterado(event.target.value);
   };
 
   return (
-    <div className="campo-texto">
-      <label>{props.label}</label>
+    <div className={`campo campo-${type}`}>
+      <label>{label}</label>
       <input
-        value={props.valor}
+        type={type}
+        value={valor}
         onChange={aoDigitado}
-        required={props.obrigatorio}
+        required={obrigatorio}
         placeholder={placeholderModificada}
       />
     </div>
@@ -22,7 +30,7 @@ const FieldText = (props) => {
 
 export default FieldText;
 
-/* Concatenar props.placeholder com "..." sem declarar placeholderModificada antes: 
+/* Concatenar placeholder com "..." sem declarar placeholderModificada antes: 
 
 <input placeholder={`${placeholder.props}...`} />
 
