@@ -15,7 +15,7 @@ const Time = (props) => {
         value={props.corPrimaria}
         type="color"
         className="input-cor"
-        onChange={(event) => props.mudarCor(event.target.value, props.id)}
+        onChange={(event) => props.mudarCor(event.target.value, props.idTime)}
       ></input>
 
       <h3 style={{ borderColor: props.corPrimaria }}>{props.nome}</h3>
@@ -24,6 +24,7 @@ const Time = (props) => {
           <ColaboradorCard
             corDeFundo={props.corPrimaria}
             key={colaborador.id}
+            idColaborador={colaborador.id}
             nome={colaborador.nome}
             cargo={colaborador.cargo}
             imagem={colaborador.imagem}

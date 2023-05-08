@@ -5,9 +5,9 @@ const ColaboradorCard = (props) => {
   return (
     <div className="colaborador">
       <AiFillCloseCircle
+        onClick={() => props.aoDeletar(props.idColaborador)}
         size={25}
         className="deletar"
-        onClick={props.aoDeletar}
       ></AiFillCloseCircle>
       <div className="cabecalho" style={{ backgroundColor: props.corDeFundo }}>
         <img src={props.imagem} alt={props.nome} />

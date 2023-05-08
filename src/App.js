@@ -46,7 +46,11 @@ function App() {
 
   const [colaboradores, setColaboradores] = useState([]);
 
-  const deletarColaborador = () => {};
+  const deletarColaborador = (id) => {
+    setColaboradores(
+      colaboradores.filter((colaborador) => colaborador.id !== id)
+    );
+  };
 
   const mudarCorDoTime = (cor, id) => {
     setTimes(
@@ -77,7 +81,7 @@ function App() {
         {times.map((time) => (
           <Time
             key={time.id}
-            id={time.id}
+            idTime={time.id}
             mudarCor={mudarCorDoTime}
             nome={time.nome}
             corPrimaria={time.cor}
