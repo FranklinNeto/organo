@@ -29,6 +29,8 @@ const Time = (props) => {
             cargo={colaborador.cargo}
             imagem={colaborador.imagem}
             aoDeletar={props.aoDeletar}
+            aoFavoritar={props.aoFavoritar}
+            colaborador={colaborador}
           />
         ))}
       </div>

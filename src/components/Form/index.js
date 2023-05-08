@@ -11,12 +11,13 @@ const Form = (props) => {
   const [imagem, setImagem] = useState("");
   const [time, setTime] = useState("");
   const [nomeTime, setNomeTime] = useState("");
-  const [corTime, setCorTime] = useState("");
+  const [corTime, setCorTime] = useState("#b51f56");
 
   const aoSalvar = (event) => {
     event.preventDefault();
     props.aoColaboradorCadastrado({
       id: uuidv4(),
+      favorito: false,
       nome,
       cargo,
       imagem,
@@ -37,7 +38,7 @@ const Form = (props) => {
     });
 
     setNomeTime("");
-    setCorTime("");
+    setCorTime("#b51f56");
   };
 
   return (
