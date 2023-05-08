@@ -67,10 +67,16 @@ function App() {
     setColaboradores([...colaboradores, colaborador]);
   };
 
+  const cadastrarTime = (novoTime) => {
+    //o parâmetro novoTime é um objeto
+    setTimes([...times, { ...novoTime, id: uuidv4() }]);
+  };
+
   return (
     <div className="App">
       <Banner />
       <Form
+        cadastrarTime={cadastrarTime}
         time={times.map((time) => time.nome)}
         aoColaboradorCadastrado={(colaborador) => {
           aoNovoColaboradorAdicionado(colaborador);

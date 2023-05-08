@@ -10,6 +10,8 @@ const Form = (props) => {
   const [cargo, setCargo] = useState("");
   const [imagem, setImagem] = useState("");
   const [time, setTime] = useState("");
+  const [nomeTime, setNomeTime] = useState("");
+  const [corTime, setCorTime] = useState("");
 
   const aoSalvar = (event) => {
     event.preventDefault();
@@ -25,6 +27,17 @@ const Form = (props) => {
     setCargo("");
     setImagem("");
     setTime("");
+  };
+
+  const aoSalvarNovoTime = (event) => {
+    event.preventDefault();
+    props.cadastrarTime({
+      nome: nomeTime,
+      cor: corTime,
+    });
+
+    setNomeTime("");
+    setCorTime("");
   };
 
   return (
@@ -60,6 +73,25 @@ const Form = (props) => {
           aoAlterado={(valor) => setTime(valor)}
         />
         <Button>Criar Card</Button>
+      </form>
+      <form onSubmit={aoSalvarNovoTime}>
+        <h2>Preencha os dados para criar um novo time:</h2>
+        <FieldText
+          valor={nomeTime}
+          aoAlterado={(valor) => setNomeTime(valor)}
+          obrigatorio={true}
+          label="Nome do time"
+          placeholder="Digite o nome do time"
+        />
+        <FieldText
+          valor={corTime}
+          aoAlterado={(valor) => setCorTime(valor)}
+          obrigatorio={true}
+          label="Cor do Time"
+          placeholder="Digite a cor do time em hexadecimal"
+        />
+
+        <Button>Criar um novo time</Button>
       </form>
     </section>
   );
