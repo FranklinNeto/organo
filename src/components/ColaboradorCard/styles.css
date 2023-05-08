@@ -50,3 +50,7 @@
 .favoritar {
   margin-top: 20px;
 }
+
+.heart:hover {
+  cursor: pointer;
+}

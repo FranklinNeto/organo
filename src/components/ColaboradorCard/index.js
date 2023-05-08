@@ -10,6 +10,7 @@ const ColaboradorCard = (props) => {
     // este objeto evita repetição de código nos icones dos corações
     size: 25,
     onClick: favoritar, //sem funcao anonima pois a funcao está logo acima
+    className: "heart",
   };
 
   return (
